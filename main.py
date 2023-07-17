@@ -10,9 +10,12 @@ def my_stack_function(arr):
     while p.isEmpty() == False:
         act = p.pop()
         if p2.isEmpty() == False:
-            c = 0
+            c = -1
             while c != p2.size():
-                if p2.top() < act:
+                if p2.isEmpty() == True:
+                    p2.push(act)
+                    c = p2.size()
+                elif p2.top() < act:
                     s = p2.pop()
                     p.push(s)
                 else:
@@ -23,5 +26,5 @@ def my_stack_function(arr):
     
     return p2.items
 
-result = my_stack_function([2, 5, 1, 7, 0, 4, 7, 8])
+result = my_stack_function([2, 6 , 7, 5, 1, 7, 6, -1, 3])
 print(result)
